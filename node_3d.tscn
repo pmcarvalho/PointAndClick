@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://dgle6nl3htafd"]
+
+[ext_resource type="Script" path="res://CharacterBody3D.cs" id="1_qp3bs"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_q6d61"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_adfr8"]
+size = Vector3(60, 1, 60)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_7nug7"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fhbpm"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 7.51963, 5.3129)
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("BoxShape3D_q6d61")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource("BoxMesh_adfr8")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.68353, 0)
+script = ExtResource("1_qp3bs")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
+mesh = SubResource("CapsuleMesh_7nug7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("CapsuleShape3D_fhbpm")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+shadow_enabled = true
