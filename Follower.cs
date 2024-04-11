@@ -18,9 +18,8 @@ public partial class Follower : CharacterBody3D
 			velocity.Y = JumpVelocity;
 
 		CharacterBody3D player = (CharacterBody3D)GetParent().GetChild(2);
-		GD.Print(player.Position);
-		Vector3 playerPosition = new Vector3(player.Position[0]-Position[0],0,player.Position[2]-Position[2]);
-		Vector3 direction = Transform.Basis * playerPosition.Normalized();
+		Vector3 playerDirection = new Vector3(player.Position[0]-Position[0],0,player.Position[2]-Position[2]);
+		Vector3 direction = Transform.Basis * playerDirection.Normalized();
 		
 		if (direction != Vector3.Zero)
 		{

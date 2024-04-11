@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://dgle6nl3htafd"]
+[gd_scene load_steps=10 format=3 uid="uid://dgle6nl3htafd"]
 
+[ext_resource type="Script" path="res://FloorCollisionShape3D.cs" id="1_fno86"]
 [ext_resource type="Script" path="res://CharacterBody3D.cs" id="1_qp3bs"]
 [ext_resource type="Script" path="res://Follower.cs" id="2_ighft"]
 
@@ -25,6 +26,7 @@ transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
 shape = SubResource("BoxShape3D_q6d61")
+script = ExtResource("1_fno86")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
 mesh = SubResource("BoxMesh_adfr8")
